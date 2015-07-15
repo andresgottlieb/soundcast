@@ -1,6 +1,8 @@
 # soundcast v1.0
 Mac OSX Menubar app to cast system audio to Chromecast.
 
+![](https://dl.dropboxusercontent.com/u/6618408/soundcast.png)
+
 ## Requirements:
 
 1. NodeJS v 0.10.38 or above (0.10.x only, for now)
