@@ -17,6 +17,9 @@ npm install
 ```bash
 npm start
 ```
+## Plans:
+I intend to package this as a standalone Electron OSX app soon. Tried, but had some problems spawning the cast process from the packaged app. If you want to help with this just fork and play, or contact me.
+
 
 ## The MIT License (MIT)
 
