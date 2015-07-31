@@ -14,7 +14,6 @@ var Menu = require('menu');
 var MenuItem = require('menu-item');
 var dialog = require('dialog');
 var mb = menubar({dir: __dirname, icon: 'not-casting.png'});
-
 //Pointer to the chromecast-osx-audio process
 var chromecast;
 //Indicates if the user reset the OSX selected sound adapters
@@ -45,7 +44,9 @@ function setDevice(which, what){
 //Menubar construction
 mb.on('ready', function ready () {
   menu = new Menu();
-
+  //Changes tray icon to "Not casting" (this is redundant but, for some reason,
+  //the packaged app doesn't apply the constructor given icon parameter
+  mb.tray.setImage(path.join(__dirname,'not-casting.png'));
   //Clicking this option starts casting audio to Chromecast
   menu.append(new MenuItem({
 		label: 'Start casting',
@@ -59,7 +60,9 @@ mb.on('ready', function ready () {
       setDevice('output','Soundflower (2ch)');
       setDevice('input','Soundflower (2ch)');
       //Spawns new subprocess that bridges system audio to the first chromecast found
-      chromecast = exec('./node_modules/chromecast-osx-audio/bin/chromecast.js -n '+caption+' -p '+port, function (err, stdout, stderr){
+      //We use a custom node binary because the chromecast-osx-audio module only works
+      //on node v0.10
+      chromecast = exec(path.join(__dirname,'/node ',__dirname,'/node_modules/chromecast-osx-audio/bin/chromecast.js -n '+caption+' -p '+port), function (err, stdout, stderr){
         if (err) {
             console.log("child processes failed with error code: "+err.code);
         }
