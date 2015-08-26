@@ -1,28 +1,17 @@
-# soundcast v1.0
+# soundcast v1.1
 Mac OSX Menubar app to cast system audio to Chromecast.
 
 ![](https://dl.dropboxusercontent.com/u/6618408/soundcast.png)
 
-## Requirements:
+## Installation and usage:
+1. Download and install [Soundflower](http://rogueamoeba.com/freebies/soundflower/).
+2. Download [soundcast](https://dl.dropboxusercontent.com/u/6618408/soundcast.zip), unzip it and drop it into your Applications folder.
+3. If you want it to start automatically with your computer do [this](http://www.howtogeek.com/206178/mac-os-x-change-which-apps-start-automatically-at-login/).
 
-1. NodeJS v 0.10.38 or above (0.10.x only, for now)
-2. [electron] (http://electron.atom.io/)
-3. [Soundflower](http://rogueamoeba.com/freebies/soundflower/)
-
-## Installation:
-```bash
-npm install
-```
-## Usage:
-```bash
-npm start
-```
-## Plans:
-I intend to package this as a standalone Electron OSX app soon. Tried, but had some problems spawning the cast process from the packaged app. If you want to help with this just fork and play, or contact me.
-
+## Development
+This app has dependencies that only work on NodeJS v0.10 (.38 and over), and uses [Electron](http://electron.atom.io/). 
 
 ## The MIT License (MIT)
-
 Copyright (c) 2015 Andrés Gottlieb
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
