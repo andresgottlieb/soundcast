@@ -13,7 +13,7 @@ var menubar = require('menubar');
 var Menu = require('menu');
 var MenuItem = require('menu-item');
 var dialog = require('dialog');
-var mb = menubar({dir: __dirname, icon: 'not-casting.png'});
+var mb = menubar({dir: __dirname, icon: 'not-castingTemplate.png'});
 //Pointer to the chromecast-osx-audio process
 var chromecast;
 //Indicates if the user reset the OSX selected sound adapters
@@ -46,7 +46,7 @@ mb.on('ready', function ready () {
   menu = new Menu();
   //Changes tray icon to "Not casting" (this is redundant but, for some reason,
   //the packaged app doesn't apply the constructor given icon parameter
-  mb.tray.setImage(path.join(__dirname,'not-casting.png'));
+  mb.tray.setImage(path.join(__dirname,'not-castingTemplate.png'));
   //Clicking this option starts casting audio to Chromecast
   menu.append(new MenuItem({
 		label: 'Start casting',
@@ -55,7 +55,7 @@ mb.on('ready', function ready () {
       menu.items[0].enabled = false;
       menu.items[1].enabled = true;
       //Changes tray icon to "Casting"
-      mb.tray.setImage(path.join(__dirname,'casting.png'));
+      mb.tray.setImage(path.join(__dirname,'castingTemplate.png'));
       //Sets OSX selected input and output audio devices to Soundflower
       setDevice('output','Soundflower (2ch)');
       setDevice('input','Soundflower (2ch)');
@@ -79,7 +79,7 @@ mb.on('ready', function ready () {
       menu.items[0].enabled = true;
       menu.items[1].enabled = false;
       //Changes tray icon to "Not casting"
-      mb.tray.setImage(path.join(__dirname,'not-casting.png'));
+      mb.tray.setImage(path.join(__dirname,'not-castingTemplate.png'));
       //Changes OSX selected audio devices back to their original selections
       setDevice('output',original_output);
       setDevice('input',original_input);
@@ -103,7 +103,7 @@ mb.on('ready', function ready () {
       menu.items[0].enabled = true;
       menu.items[1].enabled = false;
       //Sets tray icon to "Not casting"
-      mb.tray.setImage(path.join(__dirname,'not-casting.png'));
+      mb.tray.setImage(path.join(__dirname,'not-castingTemplate.png'));
       //Sets OSX selected audio devices to internal
       setDevice('output','internal');
       setDevice('input','internal');
