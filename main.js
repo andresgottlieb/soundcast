@@ -120,7 +120,7 @@ mb.on('ready', function ready () {
     click: function(){
       dialog.showMessageBox({
         title: 'About',
-        message: 'Created by Andres Gottlieb.',
+        message: 'SoundCast v1.2. Created by Andres Gottlieb.',
         detail: 'https://www.github.com/andresgottlieb/soundcast',
         buttons: ["OK"] });
     }
