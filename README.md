@@ -1,12 +1,21 @@
-# soundcast v1.2
-Mac OSX Menubar app to cast system audio to Chromecast.
+# Soundcast v1.2
+Mac OS X Menubar app to cast system audio to Chromecast.
 
 ![](https://dl.dropboxusercontent.com/u/6618408/soundcast.png)
 
 ## Installation and usage:
-1. Download and install [Soundflower](http://rogueamoeba.com/freebies/soundflower/).
-2. Download [soundcast v1.2](https://dl.dropboxusercontent.com/u/6618408/soundcast1.2.zip), unzip it and drop it into your Applications folder.
+1. Download and install [Soundflower v2.0b2](https://github.com/mattingalls/Soundflower/releases/download/2.0b2/Soundflower-2.0b2.dmg) (if you have a previous version, follow [this instructions](https://support.shinywhitebox.com/hc/en-us/articles/202751790-Uninstalling-Soundflower) to uninstall it and then install v2.0b2).
+2. Download [Soundcast v1.2](https://dl.dropboxusercontent.com/u/6618408/soundcast1.2.zip), unzip it and drop it into your Applications folder.
 3. If you want it to start automatically with your computer do [this](http://www.howtogeek.com/206178/mac-os-x-change-which-apps-start-automatically-at-login/).
+
+## Mac OS X El Capitan
+
+If you upgraded to Mac OS X El Capitan and Soundcast stopped working correctly, you need to upgrade Soundflower to v2.0b2. Just do the following:
+
+1. Uninstall Soundflower following [this instructions](https://support.shinywhitebox.com/hc/en-us/articles/202751790-Uninstalling-Soundflower).
+2. Download and install [Soundflower v2.0b2](https://github.com/mattingalls/Soundflower/releases/download/2.0b2/Soundflower-2.0b2.dmg).
+
+Don't forget rebooting your computer between both steps.
 
 ## Development
 - This app has dependencies that only work on NodeJS v0.10 (.38 and over), and uses [Electron](http://electron.atom.io/).
@@ -16,7 +25,7 @@ Mac OSX Menubar app to cast system audio to Chromecast.
 electron-packager . soundcast --platform=darwin --arch=x64 --version=0.30.6 --icon=icon.icns
 ```
 ## Changelog
-- 1.2 Added OSX dark mode compatibility.
+- 1.2 Added OS X dark mode compatibility.
 - 1.1 Added ability to be downloaded and run as an app.
 
 ## The MIT License (MIT)
