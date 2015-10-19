@@ -43,25 +43,39 @@ function setDevice(which, what){
 
 //Gets available chromecast-osx-audio
 function getChromecasts(callback){
-  exec(path.join(__dirname,'/node ',__dirname,'/node_modules/chromecast-osx-audio/bin/chromecast.js -l'), function (error, stdout, stderr) {
-    //TODO: Error management
-    callback(stdout.split(/\r\n|\r|\n/));
+  //TODO: This dirty workaround should be fixed after updating chromecast-osx-audio module to break if no chromecast is found
+  exec(path.join(__dirname,'/node ',__dirname,'/node_modules/chromecast-osx-audio/bin/chromecast.js -l & sleep 3; kill $!'), function (error, stdout, stderr) {
+    var chromecasts = stdout.split(/\r\n|\r|\n/);
+    //Remove "No such process" line caught from stdout (TODO: should be removed together with the sleep-kill workaround)
+    chromecasts.pop();
+    callback(chromecasts);
   });
 }
 
 //Menubar construction
 mb.on('ready', function ready () {
+  //Menu startup message
+  menu = new Menu();
+  menu.append(new MenuItem({
+    label: 'Scanning for Chromecasts...'
+  }));
+  mb.tray.setContextMenu(menu);
+
+  //Scan for Chromecasts and populate menus
   getChromecasts(function(chromecasts) {
+    //Reset menu to delete startup message
+    menu = new Menu();
     castmenu = new Menu();
     console.log("Start");
     for(var i=1;i<chromecasts.length-1;i++) {
       castmenu.append(new MenuItem({
         label: chromecasts[i],
         click: function(current){
-          //Enables "Stop casting" and disables "Start casting" options
+          //Disables "Start casting" options
           for(var j=0;j<castmenu.items.length;j++) {
             castmenu.items[j].enabled = false;
           }
+          //Enables "Stop casting"
           menu.items[1].enabled = true;
           //Changes tray icon to "Casting"
           mb.tray.setImage(path.join(__dirname,'castingTemplate.png'));
@@ -80,8 +94,15 @@ mb.on('ready', function ready () {
         }
       }));
     }
+    //Refresh
+    castmenu.append(new MenuItem({type: 'separator'}));
+    castmenu.append(new MenuItem({
+      label: 'Refresh Chromecasts',
+      click: function(){
+        mb.emit('ready');
+      }
+    }));
 
-    menu = new Menu();
     //Changes tray icon to "Not casting" (this is redundant but, for some reason,
     //the packaged app doesn't apply the constructor given icon parameter
     mb.tray.setImage(path.join(__dirname,'not-castingTemplate.png'));
