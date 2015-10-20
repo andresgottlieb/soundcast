@@ -9,11 +9,11 @@
   },
   "dependencies": {
     "chromecast-osx-audio": "^0.2.1",
-    "menubar": "*",
-    "shelljs": "^0.5.1"
+    "menubar": "2.3.0",
+    "shelljs": "0.5.3"
   },
   "devDependencies": {
-    "electron-prebuilt": "0.26.1"
+    "electron-prebuilt": "0.34.0"
   },
   "main": "main.js",
   "scripts": {

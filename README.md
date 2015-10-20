@@ -1,11 +1,11 @@
-# Soundcast v1.2
+# Soundcast
 Mac OS X Menubar app to cast system audio to Chromecast.
 
 ![](https://dl.dropboxusercontent.com/u/6618408/soundcast.png)
 
 ## Installation and usage:
 1. Download and install [Soundflower v2.0b2](https://github.com/mattingalls/Soundflower/releases/download/2.0b2/Soundflower-2.0b2.dmg) (if you have a previous version, follow [this instructions](https://support.shinywhitebox.com/hc/en-us/articles/202751790-Uninstalling-Soundflower) to uninstall it and then install v2.0b2).
-2. Download [Soundcast v1.2](https://dl.dropboxusercontent.com/u/6618408/soundcast1.2.zip), unzip it and drop it into your Applications folder.
+2. Download [Soundcast v1.3](http://bit.ly/1M3jsXv), unzip it and drop it into your Applications folder.
 3. If you want it to start automatically with your computer do [this](http://www.howtogeek.com/206178/mac-os-x-change-which-apps-start-automatically-at-login/).
 
 ## Mac OS X El Capitan
@@ -22,11 +22,16 @@ Don't forget rebooting your computer between both steps.
 - To package the app, use [electron-packager](https://github.com/maxogden/electron-packager):
 
 ```
-electron-packager . soundcast --platform=darwin --arch=x64 --version=0.30.6 --icon=icon.icns
+electron-packager . soundcast --platform=darwin --arch=x64 --version=0.34.0 --icon=icon.icns
 ```
 ## Changelog
-- 1.2 Added OS X dark mode compatibility.
-- 1.1 Added ability to be downloaded and run as an app.
+- **v1.3 [2015/10/19]:** Added ability to select specific Chromecast if you have more than one. Updated module dependencies.
+- **v1.2 [2015/08/26]:** Added OS X dark mode compatibility.
+- **v1.1 [2015/07/13]** Added ability to be downloaded and run as an app.
+
+## Known issues
+- Unexpected behavior when trying to cast to a Chromecast while it's booting (or just booted). This is an issue in the `chromecast-osx-audio` module dependency.
+- Sometimes the default `menubar` cat icon is shown for a few seconds instead of the Chromecast icon when launching Soundcast.
 
 ## The MIT License (MIT)
 Copyright (c) 2015 Andrés Gottlieb
