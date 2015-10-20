@@ -1,6 +1,6 @@
 {
   "name": "soundcast",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Cast OSX audio to Chromecast menubar app",
   "author": "Andres Gottlieb",
   "repository": {
@@ -9,11 +9,11 @@
   },
   "dependencies": {
     "chromecast-osx-audio": "^0.2.1",
-    "menubar": "*",
-    "shelljs": "^0.5.1"
+    "menubar": "2.3.0",
+    "shelljs": "0.5.3"
   },
   "devDependencies": {
-    "electron-prebuilt": "0.26.1"
+    "electron-prebuilt": "0.34.0"
   },
   "main": "main.js",
   "scripts": {
