@@ -8,11 +8,12 @@
     "url": "https://github.com/andresgottlieb/soundcast"
   },
   "dependencies": {
-    "chromecast-osx-audio": "^0.2.1",
+    "chromecast-osx-audio": "danjenkins/node-chromecast-osx-audio#list-json",
     "menubar": "2.3.0",
     "shelljs": "0.5.3"
   },
   "devDependencies": {
+    "electron-packager": "^5.1.0",
     "electron-prebuilt": "0.34.0"
   },
   "main": "main.js",

@@ -44,11 +44,12 @@ function setDevice(which, what){
 //Gets available chromecast-osx-audio
 function getChromecasts(callback){
   //TODO: This dirty workaround should be fixed after updating chromecast-osx-audio module to break if no chromecast is found
-  exec(path.join(__dirname,'/node ',__dirname,'/node_modules/chromecast-osx-audio/bin/chromecast.js -l & sleep 3; kill $!'), function (error, stdout, stderr) {
-    var chromecasts = stdout.split(/\r\n|\r|\n/);
-    //Remove "No such process" line caught from stdout (TODO: should be removed together with the sleep-kill workaround)
-    chromecasts.pop();
-    callback(chromecasts);
+  exec(path.join(__dirname,'/node ',__dirname,'/node_modules/chromecast-osx-audio/bin/chromecast.js -j'), function (error, stdout, stderr) {
+    if(stdout){
+      var chromecasts = JSON.parse(stdout);
+      callback(chromecasts);
+    }
+
   });
 }
 
@@ -67,9 +68,19 @@ mb.on('ready', function ready () {
     menu = new Menu();
     castmenu = new Menu();
     console.log("Start");
-    for(var i=1;i<chromecasts.length-1;i++) {
+    for(var i in chromecasts) {
+      var chromecastProcess;
+      var chromecast = chromecasts[i];
+      console.log('chromecast', chromecast.name);
+
+      var label = chromecast.name;
+
+      if(chromecast.txtRecord.md === 'Chromecast Audio'){
+        label += ' ' + String.fromCharCode('0xD83D','0xDD0A');
+      }
+
       castmenu.append(new MenuItem({
-        label: chromecasts[i],
+        label: label,
         click: function(current){
           //Disables "Start casting" options
           for(var j=0;j<castmenu.items.length;j++) {
@@ -85,7 +96,7 @@ mb.on('ready', function ready () {
           //Spawns new subprocess that bridges system audio to the first chromecast found
           //We use a custom node binary because the chromecast-osx-audio module only works
           //on node v0.10
-          chromecast = exec(path.join(__dirname,'/node ',__dirname,'/node_modules/chromecast-osx-audio/bin/chromecast.js -n '+caption+' -p '+port+' -d \''+current.label+'\''), function (err, stdout, stderr){
+          chromecastProcess = exec(path.join(__dirname,'/node ',__dirname,'/node_modules/chromecast-osx-audio/bin/chromecast.js -n '+caption+' -p '+port+' -d '+chromecast.name), function (err, stdout, stderr){
             if (err) {
                 console.log("child processes failed with error code: "+err.code);
             }
@@ -127,7 +138,7 @@ mb.on('ready', function ready () {
         setDevice('output',original_output);
         setDevice('input',original_input);
         //Kills chromecast subprocess
-        chromecast.kill();
+        chromecastProcess.kill();
       }
     }));
 
@@ -153,8 +164,8 @@ mb.on('ready', function ready () {
         setDevice('output','internal');
         setDevice('input','internal');
         //Kill chromecast subprocess if it exists
-        if(chromecast){
-            chromecast.kill();
+        if(chromecastProcess){
+            chromecastProcess.kill();
         }
       }
     }));
@@ -181,8 +192,8 @@ mb.on('ready', function ready () {
             setDevice('input',original_input);
           }
           //Kill chromecast subprocess if it exists
-          if(chromecast){
-              chromecast.kill();
+          if(chromecastProcess){
+              chromecastProcess.kill();
           }
           //Quit the app
           mb.app.quit();
