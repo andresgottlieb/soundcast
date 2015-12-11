@@ -33,6 +33,10 @@ electron-packager . soundcast --platform=darwin --arch=x64 --version=0.34.0 --ic
 ## Known issues
 - Unexpected behavior when trying to cast to a Chromecast while it's booting (or just booted). This is an issue in the `chromecast-osx-audio` module dependency.
 - Sometimes the default `menubar` cat icon is shown for a few seconds instead of the Chromecast icon when launching Soundcast.
+ 
+## Windows users
+
+Soundcast only works on Mac OS X, but there exists a similar app for Windows: [Chromecast Audio Stream](https://github.com/acidhax/chromecast-audio-stream)
 
 ## The MIT License (MIT)
 Copyright (c) 2015 Andrés Gottlieb
