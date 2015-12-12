@@ -16,7 +16,7 @@ If you don't have caskroom installed, then read further.
 ### Standard
 
 1. Download and install [Soundflower v2.0b2](https://github.com/mattingalls/Soundflower/releases/download/2.0b2/Soundflower-2.0b2.dmg) (if you have a previous version, follow [this instructions](https://support.shinywhitebox.com/hc/en-us/articles/202751790-Uninstalling-Soundflower) to uninstall it and then install v2.0b2).
-2. Download [Soundcast](http://bit.ly/Soundcast), unzip it and drop it into your Applications folder.
+2. Download the [newest version](https://github.com/andresgottlieb/soundcast/releases) of Soundcast, unzip it and drop it into your Applications folder.
 3. If you want it to start automatically with your computer do [this](http://www.howtogeek.com/206178/mac-os-x-change-which-apps-start-automatically-at-login/).
 
 ## Mac OS X El Capitan
@@ -36,6 +36,7 @@ Don't forget rebooting your computer between both steps.
 electron-packager . soundcast --platform=darwin --arch=x64 --version=0.34.0 --icon=icon.icns
 ```
 ## Changelog
+- **v1.x [2015/12/11]:** From this version, we'll be using Github's [Releases](https://github.com/andresgottlieb/soundcast/releases) to keep track of version changes.
 - **v1.4 [2015/10/25]:** Fixed bug that didn't allow casting to Chromecasts named using spaces.
 - **v1.3 [2015/10/19]:** Added ability to select specific Chromecast if you have more than one. Updated module dependencies.
 - **v1.2 [2015/08/26]:** Added OS X dark mode compatibility.
