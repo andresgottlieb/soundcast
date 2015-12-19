@@ -96,7 +96,7 @@ mb.on('ready', function ready () {
           //Spawns new subprocess that bridges system audio to the first chromecast found
           //We use a custom node binary because the chromecast-osx-audio module only works
           //on node v0.10
-          chromecastProcess = exec(path.join(__dirname,'/node ',__dirname,'/node_modules/chromecast-osx-audio/bin/chromecast.js -n '+caption+' -p '+port+' -d '+chromecast.name), function (err, stdout, stderr){
+          chromecastProcess = exec(path.join(__dirname,'/node ',__dirname,'/node_modules/chromecast-osx-audio/bin/chromecast.js -n '+caption+' -p '+port+' -d "'+chromecast.name+'"'), function (err, stdout, stderr){
             if (err) {
                 console.log("child processes failed with error code: "+err.code);
             }
@@ -176,7 +176,7 @@ mb.on('ready', function ready () {
       click: function(){
         dialog.showMessageBox({
           title: 'About',
-          message: 'SoundCast v1.4. Created by Andres Gottlieb.',
+          message: 'SoundCast v1.6. Created by Andres Gottlieb.',
           detail: 'https://www.github.com/andresgottlieb/soundcast',
           buttons: ["OK"] });
       }
