@@ -33,7 +33,7 @@ Don't forget rebooting your computer between both steps.
 - To package the app, use [electron-packager](https://github.com/maxogden/electron-packager):
 
 ```
-electron-packager . soundcast --platform=darwin --arch=x64 --version=0.34.0 --icon=icon.icns
+electron-packager . soundcast --platform=darwin --arch=x64 --version=0.36.0 --icon=icon.icns
 ```
 ## Changelog
 - **v1.x [2015/12/11]:** From this version, we'll be using Github's [Releases](https://github.com/andresgottlieb/soundcast/releases) to keep track of version changes.
@@ -45,6 +45,7 @@ electron-packager . soundcast --platform=darwin --arch=x64 --version=0.34.0 --ic
 ## Known issues
 - Unexpected behavior when trying to cast to a Chromecast while it's booting (or just booted). This is an issue in the `chromecast-osx-audio` module dependency.
 - Sometimes the default `menubar` cat icon is shown for a few seconds instead of the Chromecast icon when launching Soundcast.
+- Incompatible with chromecasts including double quotes (") in their name.
  
 ## Windows users
 
