@@ -81,7 +81,10 @@ mb.on('ready', function ready () {
 
       castmenu.append(new MenuItem({
         label: label,
+        //sublabel used to pass selected device's unmodified name (no emoticon) to chromecast.js
+        sublabel: chromecast.name,
         click: function(current){
+          console.log(current);
           //Disables "Start casting" options
           for(var j=0;j<castmenu.items.length;j++) {
             castmenu.items[j].enabled = false;
@@ -93,10 +96,10 @@ mb.on('ready', function ready () {
           //Sets OSX selected input and output audio devices to Soundflower
           setDevice('output','Soundflower (2ch)');
           setDevice('input','Soundflower (2ch)');
-          //Spawns new subprocess that bridges system audio to the first chromecast found
+          //Spawns new subprocess that bridges system audio to the selected chromecast
           //We use a custom node binary because the chromecast-osx-audio module only works
-          //on node v0.10
-          chromecastProcess = exec(path.join(__dirname,'/node ',__dirname,'/node_modules/chromecast-osx-audio/bin/chromecast.js -n '+caption+' -p '+port+' -d "'+chromecast.name+'"'), function (err, stdout, stderr){
+          //on node v0.10.x
+          chromecastProcess = exec(path.join(__dirname,'/node ',__dirname,'/node_modules/chromecast-osx-audio/bin/chromecast.js -n '+caption+' -p '+port+' -d "'+current.sublabel+'"'), function (err, stdout, stderr){
             if (err) {
                 console.log("child processes failed with error code: "+err.code);
             }
@@ -176,7 +179,7 @@ mb.on('ready', function ready () {
       click: function(){
         dialog.showMessageBox({
           title: 'About',
-          message: 'SoundCast v1.6. Created by Andres Gottlieb.',
+          message: 'SoundCast v1.7. Created by Andres Gottlieb.',
           detail: 'https://www.github.com/andresgottlieb/soundcast',
           buttons: ["OK"] });
       }

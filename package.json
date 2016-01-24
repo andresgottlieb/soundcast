@@ -1,6 +1,6 @@
 {
   "name": "soundcast",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "description": "Cast OSX audio to Chromecast menubar app",
   "author": "Andres Gottlieb",
   "repository": {
