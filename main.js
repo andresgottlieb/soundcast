@@ -43,8 +43,7 @@ function setDevice(which, what){
 
 //Gets available chromecast-osx-audio
 function getChromecasts(callback){
-  //TODO: This dirty workaround should be fixed after updating chromecast-osx-audio module to break if no chromecast is found
-  exec(path.join(__dirname,'/node ',__dirname,'/node_modules/chromecast-osx-audio/bin/chromecast.js -j'), function (error, stdout, stderr) {
+  exec(path.join('node ',__dirname,'/node_modules/chromecast-osx-audio/bin/chromecast.js -j'), function (error, stdout, stderr) {
     if(stdout){
       var chromecasts = JSON.parse(stdout);
       callback(chromecasts);
@@ -96,10 +95,7 @@ mb.on('ready', function ready () {
           //Sets OSX selected input and output audio devices to Soundflower
           setDevice('output','Soundflower (2ch)');
           setDevice('input','Soundflower (2ch)');
-          //Spawns new subprocess that bridges system audio to the selected chromecast
-          //We use a custom node binary because the chromecast-osx-audio module only works
-          //on node v0.10.x
-          chromecastProcess = exec(path.join(__dirname,'/node ',__dirname,'/node_modules/chromecast-osx-audio/bin/chromecast.js -n '+caption+' -p '+port+' -d "'+current.sublabel+'"'), function (err, stdout, stderr){
+          chromecastProcess = exec(path.join('node ',__dirname,'/node_modules/chromecast-osx-audio/bin/chromecast.js -n '+caption+' -p '+port+' -d "'+current.sublabel+'"'), function (err, stdout, stderr){
             if (err) {
                 console.log("child processes failed with error code: "+err.code);
             }
