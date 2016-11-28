@@ -9,4 +9,3 @@ I'm no longer developing Soundcast. I strongly recommend a newly available comme
 
 They offered a $3 discount for people coming from Soundcast, if you visit them through the following links:
 - [Airfoil for Mac](https://sites.fastspring.com/rogueamoeba/product/airfoilformac5?coupon=AGTHREE&source=andresxyz)
-- [Airfoil for Windows](https://sites.fastspring.com/rogueamoeba/product/airfoilforwindows5?coupon=AGTHREE&source=andresxyz)
