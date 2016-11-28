@@ -7,5 +7,5 @@ I'm no longer developing Soundcast. I strongly recommend a newly available comme
 - Allows changing the streaming volume (and even linking it to the system volume)
 - Has an integrated equalizer
 
-They offered a $3 discount for people coming from Soundcast, if you visit them through the following links:
+They offered a $3 discount for people coming from Soundcast, if you visit them through the following link:
 - [Airfoil for Mac](https://sites.fastspring.com/rogueamoeba/product/airfoilformac5?coupon=AGTHREE&source=andresxyz)
