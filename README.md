@@ -14,4 +14,4 @@ They offered a $3 discount for people coming from Soundcast, if you visit them t
 
 To remove Soundcast from your system
 
-- if you installed using `cask`, you can do `brew cask uninstall soundcast`.
+- if you installed using `cask`, you can do `brew cask uninstall soundcast` and `brew cask uninstall soundflower`.
