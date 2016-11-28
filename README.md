@@ -8,4 +8,4 @@ I'm no longer developing Soundcast. I strongly recommend a newly available comme
 - Has an integrated equalizer
 
 They offered a $3 discount for people coming from Soundcast, if you visit them through the following link:
-- [Airfoil for Mac](https://sites.fastspring.com/rogueamoeba/product/airfoilformac5?coupon=AGTHREE&source=andresxyz)
+- [Airfoil for Mac](https://goo.gl/J8J8ON)
