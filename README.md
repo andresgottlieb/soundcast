@@ -9,3 +9,9 @@ I'm no longer developing Soundcast. I strongly recommend a newly available comme
 
 They offered a $3 discount for people coming from Soundcast, if you visit them through the following link:
 - [Airfoil for Mac](https://goo.gl/J8J8ON)
+
+## Uninstalling
+
+To remove Soundcast from your system
+
+- if you installed using `cask`, you can do `brew cask uninstall soundcast` and `brew cask uninstall soundflower`.
